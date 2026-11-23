@@ -4,7 +4,7 @@ order: 7
 title: Transformer 인코더 완전 해부 — 셀프 어텐션을 눈으로 이해하기
 date: 2026-11-23 10:00:00 +0900
 categories: 딥러닝
-description: "Attention Is All You Need"의 인코더를 단계별로 분해합니다. 임베딩·위치 인코딩부터 셀프 어텐션의 Query·Key·Value, 스케일드 닷-프로덕트, 멀티헤드, 잔차 연결과 층 정규화, 피드포워드까지 비유와 그림으로 설명하고, 이것이 어떻게 ViT로 이어지는지 보여 줍니다.
+description: Attention Is All You Need의 인코더를 단계별로 분해합니다. 임베딩·위치 인코딩부터 셀프 어텐션의 Query·Key·Value, 스케일드 닷-프로덕트, 멀티헤드, 잔차 연결과 층 정규화, 피드포워드까지 비유와 그림으로 설명하고, 이것이 어떻게 ViT로 이어지는지 보여 줍니다.
 ---
 
 > **주제**: Transformer 논문 **"Attention Is All You Need"**의 **인코더** 부분을 그림과 비유로 이해합니다.
