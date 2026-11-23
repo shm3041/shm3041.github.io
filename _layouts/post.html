@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article>
+  <p class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y년 %m월 %d일' }}</time>
+    {% if page.categories.size > 0 %}· {{ page.categories | join: ', ' }}{% endif %}
+  </p>
+  {{ content }}
+  <hr>
+  <p><a href="{{ '/' | relative_url }}">← 목록으로 돌아가기</a></p>
+</article>

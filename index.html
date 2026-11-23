@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h1>글 목록</h1>
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y년 %m월 %d일' }}{% if post.categories.size > 0 %} · {{ post.categories | join: ', ' }}{% endif %}</time>
+  </li>
+  {% endfor %}
+</ul>

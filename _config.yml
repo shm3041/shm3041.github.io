@@ -1,0 +1,25 @@
+title: shm3041 기술 블로그
+description: 코딩·AI·보안 학습 기록
+lang: ko-KR
+timezone: Asia/Seoul
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# GitHub Pages가 빌드 시 무시할 파일
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
