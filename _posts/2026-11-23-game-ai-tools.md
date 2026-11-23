@@ -25,7 +25,7 @@ description: 게임 제작 파이프라인의 각 단계에서 쓸 만한 AI 도
 | 플레이테스트/시연 | modl.ai, Rosebud AI | 밸런스·난이도 자동 점검, 즉석 프로토타입 | 재미 판단은 사람 몫 |
 | 홍보/마케팅 | Runway, Canva, ChatGPT·Claude | 트레일러 영상, 썸네일, 홍보 문구 | 브랜드 톤은 사람이 보정 |
 
-2026년 GDC 조사에서, AI를 쓰는 개발자 사이에서 가장 흔한 활용 사례는 콘텐츠 생성이 아니라 플레이테스트·밸런싱(약 47%)이었습니다. 생성만큼이나 테스트 자동화의 가치가 크다는 뜻입니다.
+2026년 GDC의 State of the Game Industry 조사에서 생성형 AI를 업무에 쓰는 개발자는 약 40%였고, 동시에 절반이 넘는 응답자가 AI가 업계에 부정적이라고 답했습니다. 도구 활용은 늘고 있지만 품질과 저작권을 둘러싼 신중론도 그만큼 크다는 뜻이므로, 생성보다 오히려 QA·플레이테스트 같은 보조 영역부터 적용하는 편이 현실적입니다.
 
 ## 2. 3D 도구 — Tripo · Meshy · Rodin
 
@@ -33,11 +33,11 @@ description: 게임 제작 파이프라인의 각 단계에서 쓸 만한 AI 도
 
 | 도구 | 강점 | 메모 |
 |------|------|------|
-| Tripo | 빠른 생성 + 엔진 친화적 토폴로지 | GDC 2026에서 공개한 Tripo P1.0은 깔끔한 쿼드 기반 토폴로지의 모델을 생성해 엔진에 넣기 유리 |
+| Tripo | 엔진 친화적 저폴리 출력 | P1.0(GDC 2026.3)은 폴리곤 수를 지정해 저폴리 삼각형 메시를 생성해 리토폴 부담을 줄였고, P2.0(2026.9)에서 네이티브 쿼드 토폴로지를 지원 |
 | Meshy | 텍스트·이미지 → 3D 올라운더 | 입력 방식이 유연하고 속도가 빠름 |
 | Rodin | 텍스처 품질 | 일부 평가에서 텍스처가 가장 좋다는 의견 |
 
-Tripo는 쿼드 토폴로지 덕분에 게임 엔진에서 바로 쓰기 좋은 형태를 지향하므로, 애니메이션·리깅을 염두에 둔다면 유리합니다. Meshy는 입력이 유연하고 속도가 빨라 프로토타입 에셋을 빠르게 뽑을 때 좋고, Rodin은 외형과 질감이 중요한 장면용 에셋에 적합합니다. 보조로 Luma AI는 실제 사물을 촬영해 3D로 복원(포토그래메트리)하는 데 쓰입니다.
+Tripo는 폴리곤 수를 지정해 저폴리 메시를 뽑을 수 있고, P2.0부터는 네이티브 쿼드 토폴로지를 지원해 게임 엔진에서 바로 쓰기 좋은 형태를 지향합니다. 애니메이션·리깅을 염두에 둔다면 유리합니다. Meshy는 입력이 유연하고 속도가 빨라 프로토타입 에셋을 빠르게 뽑을 때 좋고, Rodin은 외형과 질감이 중요한 장면용 에셋에 적합합니다. 보조로 Luma AI는 실제 사물을 촬영해 3D로 복원(포토그래메트리)하는 데 쓰입니다.
 
 다만 AI가 만든 3D 메시는 폴리곤이 지저분하거나 리깅이 안 된 경우가 많습니다. 실제 게임에 넣기 전에 리토폴로지·UV·리깅 단계에서 사람 손이 필요할 수 있습니다.
 
@@ -80,3 +80,5 @@ Cursor는 게임 프로그래머 사이에서 선호도가 높은 AI 코드 에�
 - [Best AI Tools for Game Development 2026 (Manus)](https://manus.im/blog/best-ai-tools-for-game-development)
 - [Best AI for Game Development 2026: 14 Tools Compared (Summer Engine)](https://www.summerengine.com/blog/best-ai-tools-game-development)
 - [Best AI Tools for Indie Game Development 2026 (Althera)](https://altheragames.com/en/blog/best-ai-tools-indie-game-dev-2026)
+- [GDC 2026 State of the Game Industry (GDC 공식)](https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/)
+- [Tripo P2.0 — 네이티브 쿼드 메시 생성 (Voxelmatters)](https://www.voxelmatters.com/tripo-ai-launches-p2-0-model-to-generate-native-quad-meshes-for-production-pipelines/)
