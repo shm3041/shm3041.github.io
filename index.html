@@ -1,12 +1,64 @@
 ---
 layout: default
 ---
-<h1>글 목록</h1>
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y년 %m월 %d일' }}{% if post.categories.size > 0 %} · {{ post.categories | join: ', ' }}{% endif %}</time>
-  </li>
-  {% endfor %}
-</ul>
+<style>
+  .hero { padding: 72px 0 40px; }
+  .hero .wrap { max-width: 720px; }
+  .hero h1 { font-size: clamp(2.2rem, 7vw, 3.1rem); font-weight: 800;
+    margin: 0 0 18px; letter-spacing: -0.035em; line-height: 1.12; }
+  .hero .tagline { font-family: var(--mono); font-size: 15px; color: var(--muted);
+    margin: 0 0 26px; }
+  .hero .tagline::before { content: "// "; color: var(--accent); }
+  .hero .topics { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero .topics span { font-family: var(--mono); font-size: 12.5px;
+    color: var(--muted); padding: 5px 11px; border: 1px solid var(--line);
+    border-radius: 999px; background: var(--surface); }
+
+  .list-head { font-family: var(--mono); font-size: 13px; color: var(--faint);
+    padding: 10px 0; border-top: 1px solid var(--line); margin-bottom: 4px; }
+  .posts { list-style: none; margin: 0; padding: 0; }
+  .posts li { border-top: 1px solid var(--line); }
+  .posts li:last-child { border-bottom: 1px solid var(--line); }
+  .posts a { display: block; text-decoration: none; color: inherit;
+    padding: 22px 4px 22px 18px; position: relative; transition: padding .18s ease; }
+  .posts a::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px;
+    width: 3px; border-radius: 3px; background: var(--accent);
+    transform: scaleY(0); transform-origin: top; transition: transform .18s ease; }
+  .posts a:hover { padding-left: 24px; }
+  .posts a:hover::before { transform: scaleY(1); }
+  .posts .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+  .posts .cat { font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 6px; }
+  .posts .date { font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+  .posts .title { font-size: 1.28rem; font-weight: 700; letter-spacing: -0.025em;
+    line-height: 1.38; transition: color .18s ease; }
+  .posts a:hover .title { color: var(--accent); }
+  @media (max-width: 520px) { .hero { padding: 48px 0 28px; } .posts .title { font-size: 1.12rem; } }
+</style>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>기록하지 않으면<br>배운 게 아니다</h1>
+    <p class="tagline">개발하면서 마주친 것들을 정리합니다</p>
+    <div class="topics">
+      <span>C / C++</span><span>딥러닝</span><span>보안</span><span>Git</span><span>AI</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="list-head">{{ site.posts | size }}개의 글</div>
+  <ul class="posts">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <div class="meta">
+          {% if post.categories.size > 0 %}<span class="cat">{{ post.categories | first }}</span>{% endif %}
+          <span class="date">{{ post.date | date: '%Y.%m.%d' }}</span>
+        </div>
+        <div class="title">{{ post.title }}</div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

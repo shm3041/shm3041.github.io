@@ -1,12 +1,35 @@
 ---
 layout: default
 ---
+<style>
+  .post-head { padding: 56px 0 10px; }
+  .post-head .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .post-head .cat { font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 6px; }
+  .post-head .date { font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+  .post-head h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 800;
+    margin: 0; line-height: 1.22; letter-spacing: -0.035em; }
+  .post-body { padding-top: 8px; }
+  .post-body > h1:first-child { display: none; }
+  .post-nav { padding: 0 0 8px; }
+  .post-nav a { font-family: var(--mono); font-size: 13.5px; text-decoration: none; }
+  .post-nav a:hover { text-decoration: underline; }
+</style>
+
 <article>
-  <p class="post-meta">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y년 %m월 %d일' }}</time>
-    {% if page.categories.size > 0 %}· {{ page.categories | join: ', ' }}{% endif %}
-  </p>
-  {{ content }}
-  <hr>
-  <p><a href="{{ '/' | relative_url }}">← 목록으로 돌아가기</a></p>
+  <header class="post-head">
+    <div class="wrap">
+      <div class="meta">
+        {% if page.categories.size > 0 %}<span class="cat">{{ page.categories | first }}</span>{% endif %}
+        <time class="date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y년 %m월 %d일' }}</time>
+      </div>
+      <h1>{{ page.title }}</h1>
+    </div>
+  </header>
+
+  <div class="wrap post-body">
+    {{ content }}
+    <hr>
+    <nav class="post-nav"><a href="{{ '/' | relative_url }}">← 글 목록</a></nav>
+  </div>
 </article>
