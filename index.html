@@ -2,52 +2,50 @@
 layout: default
 ---
 <style>
-  .hero { padding: 72px 0 40px; }
-  .hero .wrap { max-width: 720px; }
-  .hero h1 { font-size: clamp(2.2rem, 7vw, 3.1rem); font-weight: 800;
-    margin: 0 0 18px; letter-spacing: -0.035em; line-height: 1.12; }
-  .hero .tagline { font-family: var(--mono); font-size: 15px; color: var(--muted);
-    margin: 0 0 26px; }
+  .hero { padding: 76px 0 44px; }
+  .hero h1 { font-size: clamp(2.1rem, 6.5vw, 3rem); font-weight: 820; margin: 0 0 18px;
+    letter-spacing: -0.038em; line-height: 1.12; }
+  .hero .tagline { font-family: var(--mono); font-size: 15px; color: var(--muted); margin: 0 0 28px; }
   .hero .tagline::before { content: "// "; color: var(--accent); }
   .hero .topics { display: flex; flex-wrap: wrap; gap: 8px; }
-  .hero .topics span { font-family: var(--mono); font-size: 12.5px;
-    color: var(--muted); padding: 5px 11px; border: 1px solid var(--line);
-    border-radius: 999px; background: var(--surface); }
+  .hero .topics span { font-family: var(--mono); font-size: 12.5px; color: var(--muted);
+    padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
 
-  .list-head { font-family: var(--mono); font-size: 13px; color: var(--faint);
-    padding: 10px 0; border-top: 1px solid var(--line); margin-bottom: 4px; }
-  .posts { list-style: none; margin: 0; padding: 0; }
+  .list-head { font-family: var(--mono); font-size: 12.5px; color: var(--faint);
+    padding: 12px 0; border-top: 1px solid var(--line); letter-spacing: .02em; }
+  .posts { list-style: none; margin: 0 0 20px; padding: 0; }
   .posts li { border-top: 1px solid var(--line); }
   .posts li:last-child { border-bottom: 1px solid var(--line); }
-  .posts a { display: block; text-decoration: none; color: inherit;
-    padding: 22px 4px 22px 18px; position: relative; transition: padding .18s ease; }
-  .posts a::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px;
-    width: 3px; border-radius: 3px; background: var(--accent);
+  .posts a { display: block; text-decoration: none; color: inherit; position: relative;
+    padding: 26px 6px 26px 20px; transition: padding .18s ease, background .18s ease; }
+  .posts a::before { content: ""; position: absolute; left: 0; top: 26px; bottom: 26px; width: 3px;
+    border-radius: 3px; background: linear-gradient(var(--accent), var(--accent-2));
     transform: scaleY(0); transform-origin: top; transition: transform .18s ease; }
-  .posts a:hover { padding-left: 24px; }
+  .posts a:hover { padding-left: 26px; }
   .posts a:hover::before { transform: scaleY(1); }
-  .posts .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
-  .posts .cat { font-family: var(--mono); font-size: 11.5px; font-weight: 600;
-    color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 6px; }
-  .posts .date { font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
-  .posts .title { font-size: 1.28rem; font-weight: 700; letter-spacing: -0.025em;
-    line-height: 1.38; transition: color .18s ease; }
+  .posts .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+  .posts .cat { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); padding: 3px 9px; border-radius: 6px; }
+  .posts .date { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+  .posts .title { font-size: 1.3rem; font-weight: 750; letter-spacing: -0.028em; line-height: 1.4;
+    transition: color .18s ease; }
   .posts a:hover .title { color: var(--accent); }
-  @media (max-width: 520px) { .hero { padding: 48px 0 28px; } .posts .title { font-size: 1.12rem; } }
+  .posts .desc { margin-top: 7px; font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+  @media (max-width: 520px) { .hero { padding: 50px 0 30px; } .posts .title { font-size: 1.12rem; } }
 </style>
 
 <section class="hero">
   <div class="wrap">
     <h1>한목의 개발 블로그</h1>
-    <p class="tagline">개발하면서 마주친 것들을 정리합니다</p>
+    <p class="tagline">개발하면서 마주친 것들을 깊이 있게 정리합니다</p>
     <div class="topics">
-      <span>C / C++</span><span>딥러닝</span><span>보안</span><span>Git</span><span>AI</span>
+      <span>C / C++</span><span>딥러닝</span><span>네트워크 보안</span><span>Git</span><span>AI 도구</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <div class="list-head">{{ site.posts | size }}개의 글</div>
+  <div class="list-head">전체 {{ site.posts | size }}편</div>
   <ul class="posts">
     {% assign ordered = site.posts | sort: 'order' %}
     {% for post in ordered %}
@@ -58,6 +56,7 @@ layout: default
           <span class="date">{{ post.date | date: '%Y.%m.%d' }}</span>
         </div>
         <div class="title">{{ post.title }}</div>
+        {% if post.description %}<div class="desc">{{ post.description }}</div>{% endif %}
       </a>
     </li>
     {% endfor %}
