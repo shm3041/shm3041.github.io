@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 4
 title: 'GitHub 사용법 정리: 협업을 위한 Git 명령어와 규칙'
 date: 2026-11-23 10:00:00 +0900
 categories: Git

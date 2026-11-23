@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 6
 title: 'BYOVD와 안티치트의 한계, 그리고 대응 방안'
 date: 2026-11-23 10:00:00 +0900
 categories: 보안

@@ -38,7 +38,7 @@ layout: default
 
 <section class="hero">
   <div class="wrap">
-    <h1>기록하지 않으면<br>배운 게 아니다</h1>
+    <h1>한목의 개발 블로그</h1>
     <p class="tagline">개발하면서 마주친 것들을 정리합니다</p>
     <div class="topics">
       <span>C / C++</span><span>딥러닝</span><span>보안</span><span>Git</span><span>AI</span>
@@ -49,7 +49,8 @@ layout: default
 <div class="wrap">
   <div class="list-head">{{ site.posts | size }}개의 글</div>
   <ul class="posts">
-    {% for post in site.posts %}
+    {% assign ordered = site.posts | sort: 'order' %}
+    {% for post in ordered %}
     <li>
       <a href="{{ post.url | relative_url }}">
         <div class="meta">

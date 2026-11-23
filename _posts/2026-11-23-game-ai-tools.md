@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 8
 title: '게임 제작에 쓸 만한 AI 도구 비교 (2026)'
 date: 2026-11-23 10:00:00 +0900
 categories: AI

@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 7
 title: 'Attention Is All You Need 인코더 쉽게 이해하기'
 date: 2026-11-23 10:00:00 +0900
 categories: 딥러닝

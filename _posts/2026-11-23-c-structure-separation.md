@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 1
 title: 'C언어 입문자를 위한 코드 구조 분리 규칙 (Visual Studio 기준)'
 date: 2026-11-23 10:00:00 +0900
 categories: C언어

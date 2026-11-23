@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 2
 title: 'AI 시대, 코드 규모가 커져도 유지보수를 잘하는 방법'
 date: 2026-11-23 10:00:00 +0900
 categories: 개발방법론
